@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 /**
- *
+ * It's only necessary to not specify the type if onViewRecycled is called.
  */
 public class FirstAdapter extends RecyclerView.Adapter<FirstViewHolder> {
 

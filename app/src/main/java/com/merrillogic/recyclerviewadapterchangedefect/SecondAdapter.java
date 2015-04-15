@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 /**
  *
  */
-public class SecondAdapter extends RecyclerView.Adapter<SecondViewHolder> {
+public class SecondAdapter extends RecyclerView.Adapter {
 
 	@Override
-	public void onViewRecycled(SecondViewHolder viewholder) {
+	public void onViewRecycled(RecyclerView.ViewHolder viewholder) {
 		//By adding this function, it will now crash.
 	}
 
@@ -25,8 +25,10 @@ public class SecondAdapter extends RecyclerView.Adapter<SecondViewHolder> {
 	}
 
 	@Override
-	public void onBindViewHolder(SecondViewHolder secondViewHolder, int i) {
-		//pretend we do something
+	public void onBindViewHolder(RecyclerView.ViewHolder secondViewHolder, int i) {
+		if (secondViewHolder instanceof SecondViewHolder) {
+			//do things
+		}
 	}
 
 
