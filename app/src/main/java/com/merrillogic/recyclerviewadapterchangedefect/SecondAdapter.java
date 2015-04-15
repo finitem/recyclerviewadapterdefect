@@ -10,7 +10,13 @@ import android.view.ViewGroup;
 public class SecondAdapter extends RecyclerView.Adapter<SecondViewHolder> {
 
 	@Override
+	public void onViewRecycled(SecondViewHolder viewholder) {
+		//By adding this function, it will now crash.
+	}
+
+	@Override
 	public SecondViewHolder onCreateViewHolder(ViewGroup parent, int position) {
+
 		return new SecondViewHolder(LayoutInflater.
 				from(parent.getContext()).
 				inflate(R.layout.anyitem,
