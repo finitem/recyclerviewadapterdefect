@@ -27,7 +27,7 @@ public class SecondAdapter extends RecyclerView.Adapter {
 	@Override
 	public void onBindViewHolder(RecyclerView.ViewHolder secondViewHolder, int i) {
 		if (secondViewHolder instanceof SecondViewHolder) {
-			//do things
+			((SecondViewHolder) secondViewHolder).mTextView.setText("2");
 		}
 	}
 

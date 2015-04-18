@@ -20,7 +20,7 @@ public class FirstAdapter extends RecyclerView.Adapter<FirstViewHolder> {
 
 	@Override
 	public void onBindViewHolder(FirstViewHolder firstViewHolder, int i) {
-		//pretend we do something
+		firstViewHolder.mTextView.setText("1");
 	}
 
 
