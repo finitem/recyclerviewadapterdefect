@@ -12,18 +12,25 @@ import android.widget.Button;
 
 public class MainActivity extends ActionBarActivity {
 
+	RecyclerView mRecyclerView;
+	FirstAdapter mFirstAdapter;
+	SecondAdapter mSecondAdapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
-		recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-		recyclerView.setAdapter(new FirstAdapter());
+		mRecyclerView = (RecyclerView) findViewById(R.id.recycler);
+		mRecyclerView.setLayoutManager(
+				new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+		mFirstAdapter = new FirstAdapter();
+		mSecondAdapter = new SecondAdapter();
+		mRecyclerView.setAdapter(mFirstAdapter);
 		Button change_button = (Button) findViewById(R.id.change_adapter_button);
 		change_button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				recyclerView.setAdapter(new SecondAdapter());
+				mRecyclerView.setAdapter(mSecondAdapter);
 			}
 		});
 	}
@@ -49,5 +56,10 @@ public class MainActivity extends ActionBarActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onBackPressed() {
+		mRecyclerView.setAdapter(mFirstAdapter);
 	}
 }
